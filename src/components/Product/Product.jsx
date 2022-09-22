@@ -1,33 +1,33 @@
 import "./Product.css";
 import axios from "axios";
 
-function buyItem(id) {
-  axios({
-    method: "PUT",
-    url: `/shopping/purchased/${id}`,
-  })
-    .then(() => {
-      props.getShoppingList();
-    })
-    .catch((error) => {
-      console.log("error caught in buyItem :>> ", error);
-    });
-}
-
-function removeItem(id) {
-  axios({
-    method: "DELETE",
-    url: `/shopping/remove/${id}`,
-  })
-    .then(() => {
-      props.getShoppingList();
-    })
-    .catch((error) => {
-      console.log("error caught in removeItem :>> ", error);
-    });
-}
-
 function Product(props) {
+  function buyItem(id) {
+    axios({
+      method: "PUT",
+      url: `/shopping/purchased/${id}`,
+    })
+      .then(() => {
+        props.getShoppingList();
+      })
+      .catch((error) => {
+        console.log("error caught in buyItem :>> ", error);
+      });
+  }
+
+  function removeItem(id) {
+    axios({
+      method: "DELETE",
+      url: `/shopping/remove/${id}`,
+    })
+      .then(() => {
+        props.getShoppingList();
+      })
+      .catch((error) => {
+        console.log("error caught in removeItem :>> ", error);
+      });
+  }
+
   return (
     <div className="card">
       <div className="card-item">
