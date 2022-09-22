@@ -3,37 +3,42 @@ const router = express.Router();
 const pool = require("../modules/pool");
 
 // GET Request
-router.get('/', function (req, res) {
-    console.log('in GET route');
-    const query = 'SELECT * FROM "list" ORDER BY "purchased" DESC, "item";';
-    pool.query(query).then((result) => {
-        console.log('GET request', result);
-        res.send(result.row);
-    }).catch((error) => {
-        console.log('ERRROR making GET', error);
-        res.sendStatus(500);
+router.get("/", function (req, res) {
+  console.log("in GET route");
+  const query = 'SELECT * FROM "list" ORDER BY "purchased" DESC, "item";';
+  pool
+    .query(query)
+    .then((result) => {
+      console.log("GET request", result);
+      res.send(result.rows);
     })
+    .catch((error) => {
+      console.log("ERRROR making GET", error);
+      res.sendStatus(500);
+    });
 }); //END GET ROUTE
 
 // POST Request
-router.post('/', function (req, res) {
-    const itemToAdd = req.body;
-    console.log('in POST route - item:', itemToAdd);
-    const query = `
+router.post("/", function (req, res) {
+  const itemToAdd = req.body;
+  console.log("in POST route - item:", itemToAdd);
+  const query = `
         INSERT INTO "list" ("item", "quantity", "unit")
         VALUES ($1, $2, $3);`;
-    pool.query(query, [itemToAdd.item, itemToAdd.quantity, itemToAdd.unit])
-    .then(()=> {
-        res.sendStatus(201);
-    }).catch((error)=> {
-        console.log('ERROR in POST', error);
-        res.sendStatus(500);
+  pool
+    .query(query, [itemToAdd.item, itemToAdd.quantity, itemToAdd.unit])
+    .then(() => {
+      res.sendStatus(201);
     })
+    .catch((error) => {
+      console.log("ERROR in POST", error);
+      res.sendStatus(500);
+    });
 }); //END POST REQUEST
+
 // PUT for /reset
 
 router.put("/reset", (req, res) => {
-
   const queryText = `UPDATE "list" SET "purchased" = false;`;
 
   pool
@@ -63,25 +68,29 @@ router.put("/purchased/:shoppingid", (req, res) => {
 });
 
 // DELETE for /clear
-router.delete('/clear', (req, res) => {
-    const query = `DELETE FROM "list"`;
-    pool.query(query)
-        .then((response) => res.sendStatus(204))
-        .catch(error => {
-            console.log('Error in DELETE ', error)
-            res.sendStatus(500);
-        });
+router.delete("/clear", (req, res) => {
+  const query = `DELETE FROM "list"`;
+  pool
+    .query(query)
+    .then((response) => res.sendStatus(204))
+    .catch((error) => {
+      console.log("Error in DELETE ", error);
+      res.sendStatus(500);
+    });
 });
+
 // DELETE for /remove/:id
-router.delete('/:shoppingid', (req, res) => {
-    //console.log('Req.params in DELETE = ', req.params);
-    const shoppingid = req.params.shoppingid;
-    const query = `DELETE FROM "list" WHERE "id"=$1`;
-    pool.query(query, [shoppingid])
-        .then((response) => res.sendStatus(204))
-        .catch(error => {
-            console.log('Error in DELETE by ID ', error);
-            res.sendStatus(500);
-        });
+router.delete("/:shoppingid", (req, res) => {
+  //console.log('Req.params in DELETE = ', req.params);
+  const shoppingid = req.params.shoppingid;
+  const query = `DELETE FROM "list" WHERE "id"=$1`;
+  pool
+    .query(query, [shoppingid])
+    .then((response) => res.sendStatus(204))
+    .catch((error) => {
+      console.log("Error in DELETE by ID ", error);
+      res.sendStatus(500);
+    });
 });
+
 module.exports = router;
