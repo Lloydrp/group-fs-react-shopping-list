@@ -8,6 +8,19 @@ const pool = require("../modules/pool");
 
 // PUT for /reset
 
+router.put("/reset", (req, res) => {
+  const queryText = `UPDATE "list" SET "purchased" = false;`;
+
+  pool
+    .query(queryText)
+    .then((results) => {
+      res.send("Reset all items to not purchased").status(200);
+    })
+    .catch((error) => {
+      console.log("error caught in PUT /reset :>> ", error);
+    });
+});
+
 // PUT for /purchase/:id
 
 // DELETE for /clear
