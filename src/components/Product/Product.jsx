@@ -34,8 +34,7 @@ function Product(props) {
       </div>
       <div className="card-item">
         <p className="cardP">
-          {props.product.quantity}
-          {props.product.unit}
+          {props.product.quantity} {props.product.unit}
         </p>
       </div>
       <div className="card-item">
