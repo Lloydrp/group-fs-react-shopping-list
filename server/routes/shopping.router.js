@@ -16,10 +16,24 @@ router.get('/', function (req, res) {
 }); //END GET ROUTE
 
 // POST Request
-
+router.post('/', function (req, res) {
+    const itemToAdd = req.body;
+    console.log('in POST route - item:', itemToAdd);
+    const query = `
+        INSERT INTO "list" ("item", "quantity", "unit")
+        VALUES ($1, $2, $3);`;
+    pool.query(query, [itemToAdd.item, itemToAdd.quantity, itemToAdd.unit])
+    .then(()=> {
+        res.sendStatus(201);
+    }).catch((error)=> {
+        console.log('ERROR in POST', error);
+        res.sendStatus(500);
+    })
+}); //END POST REQUEST
 // PUT for /reset
 
 router.put("/reset", (req, res) => {
+
   const queryText = `UPDATE "list" SET "purchased" = false;`;
 
   pool
