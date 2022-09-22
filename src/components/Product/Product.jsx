@@ -1,7 +1,49 @@
 import "./Product.css";
 
-function Product() {
-  return <h3>This is a Product</h3>;
+function buyItem(id) {
+  axios({
+    method: "PUT",
+    url: `/purchased/${id}`,
+  })
+    .then(() => {
+      props.getShoppingList();
+    })
+    .catch((error) => {
+      console.log("error caught in buyItem :>> ", error);
+    });
+}
+
+function removeItem(id) {
+  axios({
+    method: "DELETE",
+    url: `/remove/${id}`,
+  })
+    .then(() => {
+      props.getShoppingList();
+    })
+    .catch((error) => {
+      console.log("error caught in removeItem :>> ", error);
+    });
+}
+
+function Product(props) {
+  return (
+    <div className="card">
+      <div className="card-item">
+        <p className="cardP">{props.item}</p>
+      </div>
+      <div className="card-item">
+        <p className="cardP">
+          {props.quantity}
+          {props.unit}
+        </p>
+      </div>
+      <div className="card-item">
+        <button onClick={() => buyItem(props.id)}>Buy</button>
+        <button onClick={() => removeItem(props.id)}>Remove</button>
+      </div>
+    </div>
+  );
 }
 
 export default Product;
