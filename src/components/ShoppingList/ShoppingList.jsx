@@ -1,16 +1,8 @@
 import "./ShoppingList.css";
 import Product from "../Product/Product.jsx";
 
-function ShoppingList() {
-  return (
-    <>
-      <h3>This is a ShoppingList</h3>
-      <div>
-        This is a Product in the List
-        <Product />
-      </div>
-    </>
-  );
+function ShoppingList(props) {
+  return props.list.map((item) => <Product key={item.id} product={item} />);
 }
 
 export default ShoppingList;
