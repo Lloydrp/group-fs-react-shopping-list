@@ -1,4 +1,5 @@
 import "./ShoppingList.css";
+import Product from "../Product/Product.jsx";
 
 function ShoppingList() {
   return (
