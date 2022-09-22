@@ -30,17 +30,17 @@ function Product(props) {
   return (
     <div className="card">
       <div className="card-item">
-        <p className="cardP">{props.item}</p>
+        <p className="cardP">{props.product.item}</p>
       </div>
       <div className="card-item">
         <p className="cardP">
-          {props.quantity}
-          {props.unit}
+          {props.product.quantity}
+          {props.product.unit}
         </p>
       </div>
       <div className="card-item">
-        <button onClick={() => buyItem(props.id)}>Buy</button>
-        <button onClick={() => removeItem(props.id)}>Remove</button>
+        <button onClick={() => buyItem(props.product.id)}>Buy</button>
+        <button onClick={() => removeItem(props.product.id)}>Remove</button>
       </div>
     </div>
   );
