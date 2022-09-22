@@ -1,9 +1,10 @@
 import "./Product.css";
+import axios from "axios";
 
 function buyItem(id) {
   axios({
     method: "PUT",
-    url: `/purchased/${id}`,
+    url: `/shopping/purchased/${id}`,
   })
     .then(() => {
       props.getShoppingList();
@@ -16,7 +17,7 @@ function buyItem(id) {
 function removeItem(id) {
   axios({
     method: "DELETE",
-    url: `/remove/${id}`,
+    url: `/shopping/remove/${id}`,
   })
     .then(() => {
       props.getShoppingList();
