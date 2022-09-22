@@ -34,11 +34,11 @@ router.delete('/clear', (req, res) => {
         });
 });
 // DELETE for /remove/:id
-router.delete('/:id', (req, res) => {
-    console.log('Req.params in DELETE = ', req.params);
-    const id = req.params.id;
+router.delete('/:shoppingid', (req, res) => {
+    //console.log('Req.params in DELETE = ', req.params);
+    const shoppingid = req.params.shoppingid;
     const query = `DELETE FROM "list" WHERE "id"=$1`;
-    pool.query(query, [id])
+    pool.query(query, [shoppingid])
         .then((response) => res.sendStatus(204))
         .catch(error => {
             console.log('Error in DELETE by ID ', error);
