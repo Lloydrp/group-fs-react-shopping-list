@@ -42,7 +42,7 @@ function ShoppingForm(props) {
         <input
           id="itemInput"
           type="text"
-          placeholder="Item Name"
+          placeholder="Item Name (Required)"
           value={newItem}
           onChange={(event) => setNewItem(event.target.value)}
         />
@@ -50,7 +50,7 @@ function ShoppingForm(props) {
         <input
           id="quantityInput"
           type="text"
-          placeholder="Quantity"
+          placeholder="Quantity (Required)"
           value={newQuantity}
           onChange={(event) => setNewQuantity(event.target.value)}
         />
