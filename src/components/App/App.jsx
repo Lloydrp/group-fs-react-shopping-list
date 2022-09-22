@@ -10,6 +10,7 @@ function App() {
             <Header />
             <main>
                 <p>Under Construction...</p>
+                <ShoppingForm getShopping={getShopping} />
             </main>
         </div>
     );
