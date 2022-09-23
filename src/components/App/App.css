@@ -6,7 +6,7 @@ main {
 .container {
   display: flex;
   flex-wrap: wrap;
-  width: 49%;
+  width: 50%;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.4);
   color: white;
@@ -17,7 +17,7 @@ main {
 .container2 {
   display: flex;
   flex-wrap: wrap;
-  width: 49%;
+  width: 50%;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.4);
   color: white;
