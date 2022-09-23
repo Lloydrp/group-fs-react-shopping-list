@@ -9,6 +9,9 @@
   overflow-wrap: break-word;
   padding: 10px;
   flex-wrap: wrap;
+  margin: 10px;
+  box-shadow: 5px 5px 10px black;
+  font-size: 1.1rem;
 }
 
 .cardP {
@@ -22,5 +25,11 @@
 }
 
 .purchased-item {
-  background-color: gray;
+  background-color: rgb(127, 127, 127);
+  color: white;
+  border: 1px solid white;
+}
+
+.purchased-text {
+  font-weight: bold;
 }

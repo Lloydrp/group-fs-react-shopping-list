@@ -3,7 +3,7 @@ import ProductButtons from "./ProductButtons";
 
 function Product(props) {
   return (
-    <div className="card">
+    <div className={props.product.purchased ? "card purchased-item" : "card"}>
       <div className="card-item">
         <p className="cardP">{props.product.item}</p>
       </div>
@@ -14,7 +14,7 @@ function Product(props) {
       </div>
       <div className="card-item">
         {props.product.purchased ? (
-          "Purchased!"
+          <span className="purchased-text">Purchased!</span>
         ) : (
           <ProductButtons
             getShoppingList={props.getShoppingList}
