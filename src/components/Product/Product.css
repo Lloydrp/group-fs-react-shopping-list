@@ -20,3 +20,7 @@
 .card-item {
   width: 100%;
 }
+
+.purchased-item {
+  background-color: gray;
+}
