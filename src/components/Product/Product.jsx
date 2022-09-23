@@ -34,7 +34,7 @@ function Product(props) {
   function updateProduct(id) {
     axios({
       method: "PUT",
-      url: `/edit/${id}`,
+      url: `/shopping/edit/${id}`,
       data: {
         item: newItem,
         quantity: newQuantity,
@@ -71,13 +71,13 @@ function Product(props) {
             className="input-card input-quantity"
             value={newQuantity}
             type="text"
-            onChange={(event) => setNewItem(event.target.value)}
+            onChange={(event) => setNewQuantity(event.target.value)}
           />
           <input
             className="input-card input-unit"
             value={newUnit}
             type="text"
-            onChange={(event) => setNewItem(event.target.value)}
+            onChange={(event) => setNewUnit(event.target.value)}
           />
         </div>
         <div className="card-item">
@@ -89,7 +89,12 @@ function Product(props) {
           </button>
           <button
             className="item-btn-cancel"
-            onClick={() => setToggleMode(false)}
+            onClick={() => {
+              setNewItem(props.product.item);
+              setNewQuantity(props.product.quantity);
+              setNewUnit(props.product.unit);
+              setToggleMode(false);
+            }}
           >
             {iconCancel}
           </button>
