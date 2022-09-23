@@ -9,6 +9,9 @@
   overflow-wrap: break-word;
   padding: 10px;
   flex-wrap: wrap;
+  margin: 10px;
+  box-shadow: 5px 5px 10px black;
+  font-size: 1.1rem;
 }
 
 .cardP {
@@ -19,4 +22,62 @@
 
 .card-item {
   width: 100%;
+}
+
+.purchased-item {
+  background-color: rgb(127, 127, 127);
+  color: white;
+  border: 1px solid white;
+}
+
+.purchased-text {
+  font-weight: bold;
+}
+
+.card button {
+  background-color: white;
+  border: none;
+  border: 1px solid white;
+  text-align: center;
+  vertical-align: bottom;
+  padding: 4px 2px 0px 2px;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+}
+
+.card button:hover {
+  background-color: lightgray;
+  border-radius: 5px;
+}
+
+.item-btn-confirm {
+  color: green;
+}
+
+.item-btn-delete {
+  color: red;
+}
+
+.item-btn-edit {
+  color: gray;
+}
+
+.item-btn-cancel {
+  color: orange;
+}
+
+.input-card {
+  width: 90%;
+  display: inline;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.input-quantity {
+  width: 20%;
+}
+
+.input-unit {
+  width: 61%;
 }
