@@ -66,6 +66,21 @@
   color: orange;
 }
 
+.bg-red {
+  background-color: red;
+  color: white;
+}
+
+.bg-green {
+  background-color: green;
+  color: white;
+}
+
+.bg-orange {
+  background-color: orange;
+  color: white;
+}
+
 .input-card {
   width: 90%;
   display: inline;

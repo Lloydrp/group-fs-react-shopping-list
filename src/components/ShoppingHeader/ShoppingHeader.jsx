@@ -4,18 +4,45 @@ import "./ShoppingHeader.css";
 
 function ShoppingHeader(props) {
   function clearItems() {
-    // <<<--- need to take in an argument??
-    axios
-      .delete(`/shopping/clear`)
-      .then(() => props.getShoppingList())
-      .catch((err) => console.log(err));
+    swal({
+      title: "Delete all items?",
+      text: "This will delete all saved items!",
+      buttons: {
+        cancel: true,
+        confirm: {
+          text: "Delete",
+          className: "bg-red",
+        },
+      },
+    }).then((results) => {
+      if (results) {
+        axios
+          .delete(`/shopping/clear`)
+          .then(() => props.getShoppingList())
+          .catch((err) => console.log(err));
+      }
+    });
   }
 
   function resetItems() {
-    axios
-      .put(`/shopping/reset`)
-      .then(() => props.getShoppingList())
-      .catch((err) => console.log(err));
+    swal({
+      title: "Reset all purchases?",
+      text: "Are you sure you want to reset all purchases?",
+      buttons: {
+        cancel: true,
+        confirm: {
+          text: "Reset",
+          className: "bg-orange",
+        },
+      },
+    }).then((results) => {
+      if (results) {
+        axios
+          .put(`/shopping/reset`)
+          .then(() => props.getShoppingList())
+          .catch((err) => console.log(err));
+      }
+    });
   }
 
   return (

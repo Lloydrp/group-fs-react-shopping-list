@@ -1,6 +1,5 @@
 import "./Product.css";
 import axios from "axios";
-import { useState } from "react";
 
 function ProductButtons(props) {
   const iconEdit = (
@@ -31,29 +30,57 @@ function ProductButtons(props) {
   }
 
   function buyItem(id) {
-    axios({
-      method: "PUT",
-      url: `/shopping/purchased/${id}`,
-    })
-      .then(() => {
-        props.getShoppingList();
-      })
-      .catch((error) => {
-        console.log("error caught in buyItem :>> ", error);
-      });
+    swal({
+      title: "Purchase product?",
+      text: "Are you sure you want to purchase this product?",
+      buttons: {
+        cancel: true,
+        confirm: {
+          text: "Purchase",
+          className: "bg-green",
+        },
+      },
+    }).then((results) => {
+      if (results) {
+        axios({
+          method: "PUT",
+          url: `/shopping/purchased/${id}`,
+        })
+          .then(() => {
+            props.getShoppingList();
+          })
+          .catch((error) => {
+            console.log("error caught in buyItem :>> ", error);
+          });
+      }
+    });
   }
 
   function removeItem(id) {
-    axios({
-      method: "DELETE",
-      url: `/shopping/remove/${id}`,
-    })
-      .then(() => {
-        props.getShoppingList();
-      })
-      .catch((error) => {
-        console.log("error caught in removeItem :>> ", error);
-      });
+    swal({
+      title: "Remove Product?",
+      text: "Are you sure you want to remove this product?",
+      buttons: {
+        cancel: true,
+        confirm: {
+          text: "Remove",
+          className: "bg-red",
+        },
+      },
+    }).then((result) => {
+      if (result) {
+        axios({
+          method: "DELETE",
+          url: `/shopping/remove/${id}`,
+        })
+          .then(() => {
+            props.getShoppingList();
+          })
+          .catch((error) => {
+            console.log("error caught in removeItem :>> ", error);
+          });
+      }
+    });
   }
 
   return (
