@@ -10,11 +10,13 @@ function ShoppingForm(props) {
     // Validates that item and quantity have values enter or throw an alert
     // If validation passes the addItemToList function is called
     const handleSubmit = () => {
-        if (!newItem) {
-            alert('Item is required!');
-        } else if (!newQuantity) {
-            alert('Quantity is required!');
-        } else {
+        if (!newItem.trim() || newItem.length > 80) {
+            alert('Item is required and must be under 80 characters)');
+        } else if (!newQuantity || !Number(newQuantity)) {
+            alert('Quantity is required and must be a number');
+        } else if (newUnit && newUnit.length > 20) {
+            alert('Unit cannot be greater than 20 characters');
+        }else {
             addItemToList();
         }
     }
