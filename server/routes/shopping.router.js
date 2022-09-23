@@ -68,6 +68,21 @@ router.put("/purchased/:shoppingid", (req, res) => {
       console.log("error caught in PUT /purchased :>> ", error);
     });
 });
+// PUT for /edit/:id
+router.put("/edit/:shoppingid", (req, res) => {
+    const shoppingid = req.params.shoppingid;
+    const body = req.body;
+    const queryText = `UPDATE "list" SET "item"=$1, "quantity"=$2, "unit"=$3 WHERE "id" = $4;`;
+  
+    pool
+      .query(queryText, [body.item, body.quantity, body.unit, shoppingid])
+      .then((results) => {
+        res.send(`Item edited was ${shoppingid}`).status(200);
+      })
+      .catch((error) => {
+        console.log("error caught in PUT /purchased :>> ", error);
+      });
+  });
 
 // DELETE for /clear
 router.delete("/clear", (req, res) => {
