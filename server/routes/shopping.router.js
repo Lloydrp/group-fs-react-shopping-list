@@ -21,7 +21,7 @@ router.get("/", function (req, res) {
 router.post("/", function (req, res) {
   const itemToAdd = req.body;
   console.log("in POST route - item:", itemToAdd);
-  if (!itemToAdd.item || !itemToAdd.quantity || !itemToAdd.unit) {
+  if (!itemToAdd.item || !itemToAdd.quantity) {
     res.status(400).send('Please make sure all fields are completed');
     return;
   }
