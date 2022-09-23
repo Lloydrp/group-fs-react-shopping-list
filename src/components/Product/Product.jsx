@@ -13,10 +13,14 @@ function Product(props) {
         </p>
       </div>
       <div className="card-item">
-        <ProductButtons
-          getShoppingList={props.getShoppingList}
-          product={props.product}
-        />
+        {props.product.purchased ? (
+          "Purchased!"
+        ) : (
+          <ProductButtons
+            getShoppingList={props.getShoppingList}
+            product={props.product}
+          />
+        )}
       </div>
     </div>
   );
