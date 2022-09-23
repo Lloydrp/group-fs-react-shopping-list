@@ -60,3 +60,19 @@
 .item-btn-edit {
   color: gray;
 }
+
+.input-card {
+  width: 90%;
+  display: inline;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.input-quantity {
+  width: 20%;
+}
+
+.input-unit {
+  width: 61%;
+}
