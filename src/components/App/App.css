@@ -8,10 +8,26 @@ main {
   flex-wrap: wrap;
   width: 49%;
   margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.container2 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 49%;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
 }
 
 body {
-  background-color: #edf0da;
+  background-image: url("https://images.unsplash.com/photo-1567449303078-57ad995bd17a");
+  background-size: cover;
+  background-position: 25% 75%;
+  background-attachment: fixed;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }

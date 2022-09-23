@@ -46,7 +46,7 @@ function ShoppingForm(props) {
   };
 
   return (
-    <div className="container">
+    <div className="container2">
       <div>
         <label className="form-labels">Item:</label>
         <input

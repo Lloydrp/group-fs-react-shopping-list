@@ -46,7 +46,7 @@ function ShoppingHeader(props) {
   }
 
   return (
-    <div className="container">
+    <div className="container2">
       <div className="shopping-header-container">
         <h3>Shopping List</h3>
         <button className="shopping-btn" onClick={() => resetItems()}>
