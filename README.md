@@ -16,7 +16,7 @@ This is the most innovative shopping application available!
 
 ## Screen Shot
 
-![Alt text](/images/To%20Do%20Example.jpg?raw=true "To Do Preview")
+Screenshots to come soon!
 
 ### Prerequisites
 
