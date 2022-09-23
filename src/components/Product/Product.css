@@ -56,3 +56,7 @@
 .item-btn-delete {
   color: red;
 }
+
+.item-btn-edit {
+  color: gray;
+}

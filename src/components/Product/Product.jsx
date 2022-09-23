@@ -1,7 +1,10 @@
 import "./Product.css";
 import ProductButtons from "./ProductButtons";
+import { useState } from "react";
 
 function Product(props) {
+  const [toggleMode, setToggleMode] = useState(false);
+
   return (
     <div className={props.product.purchased ? "card purchased-item" : "card"}>
       <div className="card-item">
@@ -19,6 +22,8 @@ function Product(props) {
           <ProductButtons
             getShoppingList={props.getShoppingList}
             product={props.product}
+            setToggleMode={setToggleMode}
+            toggleMode={toggleMode}
           />
         )}
       </div>
