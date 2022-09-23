@@ -6,4 +6,12 @@ main {
 .container {
   display: flex;
   flex-wrap: wrap;
+  width: 49%;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #edf0da;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }

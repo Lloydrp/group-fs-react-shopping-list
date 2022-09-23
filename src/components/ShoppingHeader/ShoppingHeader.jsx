@@ -46,11 +46,17 @@ function ShoppingHeader(props) {
   }
 
   return (
-    <>
-      <h3>Shopping List</h3>
-      <button onClick={() => resetItems()}>Reset</button>
-      <button onClick={() => clearItems()}>Clear</button>
-    </>
+    <div className="container">
+      <div className="shopping-header-container">
+        <h3>Shopping List</h3>
+        <button className="shopping-btn" onClick={() => resetItems()}>
+          Reset
+        </button>
+        <button className="shopping-btn" onClick={() => clearItems()}>
+          Clear
+        </button>
+      </div>
+    </div>
   );
 }
 
