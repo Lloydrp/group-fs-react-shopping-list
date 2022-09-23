@@ -82,7 +82,7 @@ router.delete("/clear", (req, res) => {
 });
 
 // DELETE for /remove/:id
-router.delete("/:shoppingid", (req, res) => {
+router.delete("/remove/:shoppingid", (req, res) => {
   //console.log('Req.params in DELETE = ', req.params);
   const shoppingid = req.params.shoppingid;
   const query = `DELETE FROM "list" WHERE "id"=$1`;
