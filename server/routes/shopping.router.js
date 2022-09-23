@@ -21,11 +21,14 @@ router.get("/", function (req, res) {
 router.post("/", function (req, res) {
   const itemToAdd = req.body;
   console.log("in POST route - item:", itemToAdd);
+  if (!itemToAdd.item || !itemToAdd.quantity || !itemToAdd.unit) {
+    res.status(400).send('Please make sure all fields are completed');
+    return;
+  }
   const query = `
         INSERT INTO "list" ("item", "quantity", "unit")
         VALUES ($1, $2, $3);`;
-  pool
-    .query(query, [itemToAdd.item, itemToAdd.quantity, itemToAdd.unit])
+  pool.query(query, [itemToAdd.item, itemToAdd.quantity, itemToAdd.unit])
     .then(() => {
       res.sendStatus(201);
     })

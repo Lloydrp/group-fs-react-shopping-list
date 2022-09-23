@@ -19,7 +19,7 @@ function ShoppingHeader() {
     return ( 
         <>
         <h3>Shopping List</h3>
-        <button onClick={()=> resetItems}>Reset</button>
+        <button onClick={()=>resetItems}>Reset</button>
         <button onClick={()=>clearItems}>Clear</button>
         </>
      );
