@@ -10,10 +10,13 @@
   padding: 10px;
   flex-wrap: wrap;
   margin: 10px;
-  box-shadow: 5px 5px 10px black;
   font-size: 1.1rem;
   background-color: white;
   color: black;
+}
+
+.card:hover {
+  box-shadow: 5px 5px 10px black;
 }
 
 .cardP {
@@ -42,7 +45,7 @@
   border: 1px solid white;
   text-align: center;
   vertical-align: bottom;
-  padding: 4px 2px 0px 2px;
+  padding: 4px 3px 0px 3px;
   box-sizing: border-box;
   font-size: 1.1rem;
 }
@@ -50,6 +53,7 @@
 .card button:hover {
   background-color: lightgray;
   border-radius: 5px;
+  box-shadow: none;
 }
 
 .item-btn-confirm {
