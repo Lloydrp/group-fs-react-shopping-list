@@ -42,7 +42,8 @@ function Product(props) {
       },
     })
       .then(() => {
-        getShoppingList();
+        props.getShoppingList();
+        setToggleMode(false);
       })
       .catch((error) => {
         console.log("error caught in edit PUT :>> ", error);
